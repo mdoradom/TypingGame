@@ -1,30 +1,31 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Typing Game</title>
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="animate.css">
-        <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <div class="wrapper">
-            <h1>Typing Game by <a href="https://github.com/mdoradom">mdoradom</a></h1>
-            <p>Type as many words as you can until time runs out!</p>
-            <button>START</button>
-            <div class="outerWrap">
-                <div class="scoreWrap">
-                    <p>Score</p>
+        <div class="container">
+            <h1>Typing Game</h1>
+            <p>You have 60 seconds to write as many words as you can!</p>
+            <button id="playButton">Play</button>
+            <div class="outerContainer">
+                <div class="scoreContainer">
+                    <p>Points</p>
                     <span class="score">0</span>
                 </div>
-                <div class="timeWrap">
+                <div class="timeContainer">
                     <p>Time left</p>
                     <span class="time">60</span>
                 </div>
             </div>
-            <div class="wordsWrap">
+            <div class="wordsContainer">
                 <p class="words"></p>
             </div>
         </div>
+        <p class="madeByText">Made by <a href="https://github.com/mdoradom/TypingGame">mdoradom</a></p>
+        <script src="index.js"></script>
     </body>
 </html>
