@@ -9,8 +9,8 @@ var typed;
 var spans;
 const list = [];
 
-// it will get 100 words from the Random Word API: http://random-word-api.herokuapp.com/home
-fetch('https://random-word-api.herokuapp.com/word?number=100')
+// it will get 100 words of 10 letters from the Random Word API: http://random-word-api.herokuapp.com/home
+fetch('https://random-word-api.herokuapp.com/word?length=10&number=100')
 	.then(response => response.json())
 	.then(response => {
 		for (var i = 0; i < response.length; i++) {
