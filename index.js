@@ -26,7 +26,7 @@ function timer() {
 		playButton.disabled = true;
 		seconds--;
 		time.innerHTML = seconds;
-		if (seconds === 0) {
+		if (seconds == 0) {
 			scoreContainer.innerHTML = "0";
 			alert("Time is up! you've got " + points + " points")
 			words.innerHTML = "";
@@ -63,10 +63,10 @@ function typing(e) {
 	console.log(typed);
 
 	for (var i = 0; i < spans.length; i++) {
-		if (spans[i].innerHTML === typed) {
+		if (spans[i].innerHTML == typed) {
 			if (spans[i].classList.contains("bg")) {
 				continue;
-			} else if (spans[i].classList.contains("bg") === false && spans[i - 1] === undefined || spans[i - 1].classList.contains("bg") !== false) {
+			} else if (spans[i].classList.contains("bg") == false && spans[i - 1] == undefined || spans[i - 1].classList.contains("bg") !== false) {
 				spans[i].classList.add("bg");
 				break;
 			}
@@ -75,11 +75,11 @@ function typing(e) {
 
 	var checker = 0;
 	for (var j = 0; j < spans.length; j++) {
-		if (spans[j].className === "span bg") {
+		if (spans[j].className == "span bg") {
 			checker++;
 		}
 
-		if (checker === spans.length) {
+		if (checker == spans.length) {
 			words.classList.add("animate");
 			words.classList.add("fadeOut");
 			points++;
