@@ -51,7 +51,7 @@ a {
 .scoreContainer {float: left;}
 .timeContainer {float: right;}
 
-.outerContainer:after {
+.container:after {
 	content: "";
 	display: block;
 	clear: both;
@@ -98,10 +98,17 @@ button:active {
     color: #ECF0F1;
 }
 
+.animate {
+    animation: fadeOut 0.3s;
+    opacity: 0;
+}
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
 
-
-
-
-
-
+    100% {
+        opacity: 0;
+    }
+}
