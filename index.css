@@ -93,6 +93,7 @@ button:active {
 }
 
 .words {
+    padding-top: 20px;
     font-size: 60px;
     letter-spacing: 1px;
     color: #ECF0F1;

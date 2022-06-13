@@ -7,24 +7,17 @@ var points = 0;
 var seconds = 60;
 var typed;
 var spans;
+const list = [];
 
-// https://rapidapi.com/dpventures/api/wordsapi/
-// falta subscribirse a la api para que deje usarla
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '2cc55d8909msh0027a79098d232ep124555jsnaf7f2b4401a5',
-		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-	}
-};
-
-fetch('https://wordsapiv1.p.rapidapi.com/words/hatchback/typeOf', options)
+// it will get 100 words from the Random Word API: http://random-word-api.herokuapp.com/home
+fetch('https://random-word-api.herokuapp.com/word?number=100')
 	.then(response => response.json())
-	.then(response => console.log(response))
+	.then(response => {
+		for (var i = 0; i < response.length; i++) {
+			list.push(response[i]);
+		}
+	})
 	.catch(err => console.error(err));
-
-// list of words that will be displayed during the game
-const list = ["CASA", "AMAPOLA", "DINOSAURIO"];
 
 // this method will reset all the game and start the game from 0 points and 60 remaining seconds
 function timer() {
@@ -55,7 +48,8 @@ function randWord() {
 	for (var i = 0; i < wordArray.length; i++) {
 		var span = document.createElement("span");
 		span.classList.add("span");
-		span.innerHTML = wordArray[i];
+		span.innerHTML = wordArray[i].toUpperCase();
+		console.log(wordArray[i].toUpperCase());
 		words.appendChild(span);
 	}
 	spans = document.querySelectorAll(".span")
