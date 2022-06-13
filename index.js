@@ -8,6 +8,21 @@ var seconds = 60;
 var typed;
 var spans;
 
+// https://rapidapi.com/dpventures/api/wordsapi/
+// falta subscribirse a la api para que deje usarla
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '2cc55d8909msh0027a79098d232ep124555jsnaf7f2b4401a5',
+		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+	}
+};
+
+fetch('https://wordsapiv1.p.rapidapi.com/words/hatchback/typeOf', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+
 // list of words that will be displayed during the game
 const list = ["CASA", "AMAPOLA", "DINOSAURIO"];
 
