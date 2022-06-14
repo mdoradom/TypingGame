@@ -3,6 +3,7 @@ var playButton = document.querySelector("button");
 var words = document.querySelector(".words");
 var timerContainer = document.querySelector(".time");
 var scoreContainer = document.querySelector(".score");
+var leaderBoard = document.querySelector("table");
 var points = 0;
 var seconds = 60;
 var typed;
@@ -33,11 +34,53 @@ function timer() {
 			playButton.disabled = false;
 			seconds = 60;
 			timerContainer = "60";
+			updateLeaderBoard();
 			clearInterval(timeInterval) // this will reset the interval, otherwise it won't stop when it ends
 		}
 	}, 1000);
 }
 
+
+function updateLeaderBoard() {
+	var row = leaderBoard.insertRow(1);
+	var cel = row.insertCell(0);
+	cel.innerHTML = points;
+	sortTable();
+}
+
+function sortTable() {
+	var rows, switching, i, x, y, shouldSwitch;
+	switching = true;
+	/*Make a loop that will continue until
+	no switching has been done:*/
+	while (switching) {
+		//start by saying: no switching is done:
+		switching = false;
+		rows = leaderBoard.rows;
+		/*Loop through all table rows (except the
+		first, which contains table headers):*/
+		for (i = 1; i < (rows.length - 1); i++) {
+			//start by saying there should be no switching:
+			shouldSwitch = false;
+			/*Get the two elements you want to compare,
+			one from current row and one from the next:*/
+			x = rows[i].getElementsByTagName("TD")[0];
+			y = rows[i + 1].getElementsByTagName("TD")[0];
+			//check if the two rows should switch place:
+			if (Number(x.innerHTML) < Number(y.innerHTML)) {
+			//if so, mark as a switch and break the loop:
+				shouldSwitch = true;
+				break;
+			}
+		}
+		if (shouldSwitch) {
+			/*If a switch has been marked, make the switch
+			and mark that a switch has been done:*/
+			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			switching = true;
+		}
+	}
+}
 
 // this method will pick a random word from the list and will divide it with "span" tags between every letter, 
 // so you can change the background color when the player presses one letter
